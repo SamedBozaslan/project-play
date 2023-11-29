@@ -9,11 +9,12 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        // Get input for forward and backward movement
-        float forwardInput = Input.GetAxisRaw("Vertical");
+        // Get input for horizontal and vertical movement
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("Vertical");
 
         // Calculate movement direction
-        Vector3 movement = new Vector3(0f, 0f, forwardInput);
+        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput);
 
         // Normalize the movement vector to ensure consistent speed in all directions
         movement.Normalize();
