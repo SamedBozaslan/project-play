@@ -14,8 +14,7 @@ public class Movement : MonoBehaviour
         float verticalInput = Input.GetAxisRaw("Vertical");
         Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput).normalized;
 
-        Debug.Log("Horizontal Input: " + horizontalInput);
-        Debug.Log("Vertical Input: " + verticalInput);
+        
 
         if (movement != Vector3.zero)
         {

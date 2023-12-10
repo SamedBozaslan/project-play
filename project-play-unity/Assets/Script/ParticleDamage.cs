@@ -19,9 +19,12 @@ public class ParticleDamage : MonoBehaviour
 
     private System.Collections.IEnumerator ApplyDamageOverTime(GameObject enemy)
     {
-        while (totalEnemyHealth > 0)
+        while (totalEnemyHealth > 0 && enemy != null)
         {
-            // Deal damage per second
+            // Deal damage per second if the enemy is still valid
+            if (Object.ReferenceEquals(enemy, null))
+                break; // Exit the loop if the enemy is destroyed
+
             enemy.GetComponent<EnemyHealth>().TakeDamage(damagePerSecond);
 
             // Wait for 1 second before applying the next damage
