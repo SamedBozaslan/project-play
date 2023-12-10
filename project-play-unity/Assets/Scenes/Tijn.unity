@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 218615013}
   - component: {fileID: 218615017}
   - component: {fileID: 218615018}
+  - component: {fileID: 218615019}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -256,6 +257,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &218615019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218615011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b171bcc525eb342b47169256d3b8a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &338479589
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,8 +387,7 @@ GameObject:
   - component: {fileID: 809999056}
   - component: {fileID: 809999059}
   - component: {fileID: 809999058}
-  - component: {fileID: 809999057}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Particle System (1)
   m_TagString: mist
   m_Icon: {fileID: 0}
@@ -1014,7 +1026,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 40.46
+    angle: 9.27
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -4143,9 +4155,9 @@ ParticleSystem:
       serializedVersion: 2
       m_Bits: 64
     maxCollisionShapes: 256
-    quality: 1
+    quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -5105,27 +5117,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!65 &809999057
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809999055}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 4.3079586, y: 5.215766, z: 9.653702}
-  m_Center: {x: 1.5154071, y: 1.0615041, z: 3.44556}
 --- !u!114 &809999058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5138,8 +5129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107c3d619179acb4d8275375cc999e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSecond: 10
-  totalEnemyHealth: 10
+  damagePerSecond: 2
+  totalEnemyHealth: 50
 --- !u!199 &809999059
 ParticleSystemRenderer:
   serializedVersion: 6

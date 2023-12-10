@@ -9,7 +9,7 @@ public class EnemyHealth : MonoBehaviour
     void Start()
     {
         // Set initial health
-        currentHealth = 10;
+        currentHealth = 50;
     }
 
     public void TakeDamage(int damage)
