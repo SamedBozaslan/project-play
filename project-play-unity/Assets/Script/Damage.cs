@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParticleDamage : MonoBehaviour
+public class Damage : MonoBehaviour 
 {
     public int damagePerSecond = 2;
-    public int totalEnemyHealth = 10;
 
     private void OnParticleCollision(GameObject other)
     {
@@ -19,13 +18,12 @@ public class ParticleDamage : MonoBehaviour
 
     private System.Collections.IEnumerator ApplyDamageOverTime(GameObject enemy)
     {
-        while (totalEnemyHealth > 0 && enemy != null)
+        Healthmanager healthManager = enemy.GetComponent<Healthmanager>();
+
+        while (healthManager.currentHealth > 0)
         {
             // Deal damage per second if the enemy is still valid
-            if (Object.ReferenceEquals(enemy, null))
-                break; // Exit the loop if the enemy is destroyed
-
-            enemy.GetComponent<EnemyHealth>().TakeDamage(damagePerSecond);
+            healthManager.TakeDamage(damagePerSecond);
 
             // Wait for 1 second before applying the next damage
             yield return new WaitForSeconds(1f);

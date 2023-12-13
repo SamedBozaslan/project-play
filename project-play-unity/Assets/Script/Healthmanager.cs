@@ -1,16 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class EnemyHealth : MonoBehaviour
+public class Healthmanager : MonoBehaviour
 {
-    private int currentHealth;
-    void Start()
-    {
-        // Set initial health
-        currentHealth = 50;
-    }
+    public int currentHealth = 50;
 
     public void TakeDamage(int damage)
     {
@@ -25,3 +19,4 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 }
+
