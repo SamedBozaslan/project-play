@@ -1,10 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Damage : MonoBehaviour 
 {
+
+    [Header("Player damage to Enemy")]
     public int damagePerSecond = 2;
+    [Header("Enemy damage to Player")]
+    public int damageAmount = 10;
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Check if the collided object has the "Player" tag
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            // Apply damage to the player
+            collision.gameObject.GetComponent<Healthmanager>().TakeDamage(damageAmount);
+        }
+    }
 
     private void OnParticleCollision(GameObject other)
     {
