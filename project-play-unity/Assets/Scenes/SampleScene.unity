@@ -4068,12 +4068,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 20.2, z: -22.7}
+  m_LocalRotation: {x: -0.026728498, y: -0.7066015, z: -0.7066015, w: 0.026728498}
+  m_LocalPosition: {x: 232.28499, y: 16.414001, z: 503.42047}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1535117488}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -6014,6 +6014,7 @@ Transform:
   - {fileID: 1118554111}
   - {fileID: 355056607}
   - {fileID: 2079702244}
+  - {fileID: 963194228}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 175.667, z: 0}
 --- !u!65 &1535117489
@@ -7812,6 +7813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damagePerSecond: 2
+  damageAmount: 10
 --- !u!199 &2079702247
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -21364,6 +21366,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1886039905}
-  - {fileID: 963194228}
   - {fileID: 1535117488}
   - {fileID: 1055681339}
