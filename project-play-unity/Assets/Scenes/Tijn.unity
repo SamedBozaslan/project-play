@@ -668,7 +668,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3689b6e0713cf1b4397adf3ae306548b, type: 3}
       propertyPath: m_Name
-      value: Character
+      value: Character animation
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3689b6e0713cf1b4397adf3ae306548b, type: 3}
       propertyPath: m_TagString
@@ -5903,6 +5903,7 @@ MonoBehaviour:
   rotationSpeed: 180
   rb: {fileID: 933694670}
   mistParticleSystem: {fileID: 809999056}
+  playerAnimator: {fileID: 1458071664}
 --- !u!54 &933694670
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5911,7 +5912,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933694667}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6180,7 +6181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1372993797}
   smoothSpeed: 180
-  offset: {x: 0, y: 25.6, z: -25.4}
+  offset: {x: 0, y: 25.6, z: -29.3}
 --- !u!1 &1458071658 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3689b6e0713cf1b4397adf3ae306548b, type: 3}
