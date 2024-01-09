@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Healthmanager : MonoBehaviour
+public class EnemyHealthManager : MonoBehaviour
 {
     public int currentHealth = 50;
 
@@ -14,9 +14,8 @@ public class Healthmanager : MonoBehaviour
         // Check if the enemy is defeated
         if (currentHealth <= 0)
         {
-            // Perform defeat actions (e.g., play animation, destroy enemy)
+            // Perform defeat actions for the enemy (e.g., play animation, destroy enemy)
             Destroy(gameObject);
         }
     }
 }
-

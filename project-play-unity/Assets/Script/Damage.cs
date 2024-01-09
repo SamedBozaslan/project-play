@@ -18,7 +18,7 @@ public class Damage : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             // Apply damage to the player
-            collision.gameObject.GetComponent<Healthmanager>().TakeDamage(damageAmount);
+            collision.gameObject.GetComponent<PlayerHealthManager>().TakeDamage(damageAmount);
         }
     }
 
@@ -34,7 +34,7 @@ public class Damage : MonoBehaviour
 
     private System.Collections.IEnumerator ApplyDamageOverTime(GameObject enemy)
     {
-        Healthmanager healthManager = enemy.GetComponent<Healthmanager>();
+        EnemyHealthManager healthManager = enemy.GetComponent<EnemyHealthManager>();
 
         while (healthManager.currentHealth > 0)
         {
@@ -43,6 +43,6 @@ public class Damage : MonoBehaviour
 
             // Wait for 1 second before applying the next damage
             yield return new WaitForSeconds(1f);
-        }
-    }
+        } 
+    } 
 }
