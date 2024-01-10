@@ -74,11 +74,23 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 3382546994747865008}
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     m_Position: {x: 510, y: 70, z: 0}
 =======
     m_Position: {x: 510, y: 60, z: 0}
 >>>>>>> Stashed changes
+=======
+    m_Position: {x: 520, y: 60, z: 0}
+>>>>>>> parent of 902844b (.)
+=======
+    m_Position: {x: 520, y: 60, z: 0}
+>>>>>>> parent of 902844b (.)
+=======
+    m_Position: {x: 520, y: 60, z: 0}
+>>>>>>> parent of 902844b (.)
 =======
     m_Position: {x: 520, y: 60, z: 0}
 >>>>>>> parent of 902844b (.)
@@ -144,6 +156,9 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
     m_Controller: {fileID: 9100000}
 <<<<<<< Updated upstream
   - m_Name: Move Enemy
@@ -154,6 +169,15 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
 =======
 >>>>>>> Stashed changes
+=======
+    m_Controller: {fileID: 0}
+>>>>>>> parent of 902844b (.)
+=======
+    m_Controller: {fileID: 0}
+>>>>>>> parent of 902844b (.)
+=======
+    m_Controller: {fileID: 0}
+>>>>>>> parent of 902844b (.)
 =======
     m_Controller: {fileID: 0}
 >>>>>>> parent of 902844b (.)
