@@ -1,8 +1,14 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:project-play-unity/Assets/New Material 4.mat.meta
 guid: fb7097e8d1e24114594c82bc266100e3
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
+========
+guid: 9e898de3471935949ac337ae337c01a1
+PrefabImporter:
+  externalObjects: {}
+>>>>>>>> parent of 902844b (.):project-play-unity/Assets/Assets/Environment_assets/Charaxthers/Enemy.prefab.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 
