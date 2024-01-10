@@ -7,20 +7,12 @@ public class Damage : MonoBehaviour
 {
 
     [Header("Player damage to Enemy")]
-    public int damagePerSecond = 2;
+    public int damagePerSecondToEnemy = 2;
     [Header("Enemy damage to Player")]
-    public int damageAmount = 10;
+    public int DamagePerSecondToPlayer = 10;
 
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        // Check if the collided object has the "Player" tag
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            // Apply damage to the player
-            collision.gameObject.GetComponent<PlayerHealthManager>().TakeDamage(damageAmount);
-        }
-    }
+   
 
     private void OnParticleCollision(GameObject other)
     {
@@ -28,21 +20,41 @@ public class Damage : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             // Apply damage over time
-            StartCoroutine(ApplyDamageOverTime(other));
+            StartCoroutine(ApplyDamageOverTimeEnemy(other));
+        }
+        if (other.CompareTag("Player"))
+        {
+            // Apply damage to the player
+            StartCoroutine(ApplyDamageOverTimePlayer(other));
+            Debug.Log("damage");
         }
     }
 
-    private System.Collections.IEnumerator ApplyDamageOverTime(GameObject enemy)
+    private System.Collections.IEnumerator ApplyDamageOverTimeEnemy(GameObject enemy)
     {
         EnemyHealthManager healthManager = enemy.GetComponent<EnemyHealthManager>();
 
         while (healthManager.currentHealth > 0)
         {
             // Deal damage per second if the enemy is still valid
-            healthManager.TakeDamage(damagePerSecond);
+            healthManager.TakeDamage(damagePerSecondToEnemy);
 
             // Wait for 1 second before applying the next damage
             yield return new WaitForSeconds(1f);
         } 
-    } 
+    }
+
+    private System.Collections.IEnumerator ApplyDamageOverTimePlayer(GameObject Player)
+    {
+        PlayerHealthManager healthManager = Player.GetComponent<PlayerHealthManager>();
+
+        while (healthManager.currentHealth > 0)
+        {
+            // Deal damage per second if the enemy is still valid
+            healthManager.TakeDamage(DamagePerSecondToPlayer);
+
+            // Wait for 1 second before applying the next damage
+            yield return new WaitForSeconds(1f);
+        }
+    }
 }
