@@ -70502,6 +70502,7 @@ MonoBehaviour:
   rotationSpeed: 360
   rb: {fileID: 1535117483}
   mistParticleSystem: {fileID: 2079702248}
+  playerAnimator: {fileID: 0}
 --- !u!23 &1535117486
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -70561,7 +70562,7 @@ Transform:
   m_GameObject: {fileID: 1535117482}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.99928534, z: -0, w: 0.0377998}
-  m_LocalPosition: {x: 223.1, y: 3.786, z: 491.87}
+  m_LocalPosition: {x: 223.1, y: 3.786, z: 470.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -84986,8 +84987,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107c3d619179acb4d8275375cc999e1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSecond: 2
-  damageAmount: 10
+  damagePerSecondToEnemy: 2
+  DamagePerSecondToPlayer: 10
 --- !u!199 &2079702247
 ParticleSystemRenderer:
   serializedVersion: 6
