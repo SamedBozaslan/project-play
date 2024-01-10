@@ -30,9 +30,9 @@ public class Damage : MonoBehaviour
         }
     }
 
-    private System.Collections.IEnumerator ApplyDamageOverTimeEnemy(GameObject Enemy)
+    private System.Collections.IEnumerator ApplyDamageOverTimeEnemy(GameObject enemy)
     {
-        EnemyController healthManager = Enemy.GetComponent<EnemyController>();
+        EnemyHealthManager healthManager = enemy.GetComponent<EnemyHealthManager>();
 
         while (healthManager.currentHealth > 0)
         {
