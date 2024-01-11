@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerHealthManager : MonoBehaviour
 {
@@ -48,6 +50,8 @@ public class PlayerHealthManager : MonoBehaviour
             Debug.Log("Player defeated");
             // You can add more actions as needed
             Destroy(gameObject);
+            SceneManager.LoadScene(0);
+
         }
     }
 }
