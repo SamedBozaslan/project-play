@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody rb;
 
     public ParticleSystem mistParticleSystem;
+    public Animator playerAnimator;
 
     void Update()
     {
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
         // Mist Control
         HandleMistControl();
+
     }
 
     void HandleMovement()
@@ -31,10 +33,21 @@ public class PlayerController : MonoBehaviour
             Vector3 rotationVector = new Vector3(0, targetAngle, 0);
             Quaternion toRotation = Quaternion.Euler(rotationVector);
             rb.MoveRotation(Quaternion.RotateTowards(rb.rotation, toRotation, rotationSpeed * Time.deltaTime));
-        }
 
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.deltaTime);
+            // Move the player based on input and speed
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.deltaTime);
+
+            // Trigger the "Move" animation
+            playerAnimator.SetBool("Move", true);
+        }
+        else
+        {
+            // If not moving, trigger the "Idle" animation
+            playerAnimator.SetBool("Move", false);
+        }
     }
+
+
 
     void HandleMistControl()
     {
@@ -42,12 +55,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             StartMist();
-        }
+            playerAnimator.SetBool("Attack", true); // Replace "YourAnimationTriggerName" with the actual trigger name in your Animator controller
+        } 
 
-        // Check for left mouse button release
-        if (Input.GetMouseButtonUp(0))
+    // Check for left mouse button release
+    if (Input.GetMouseButtonUp(0))
         {
             StopMist();
+            playerAnimator.SetBool("Attack", false);
         }
     }
 
@@ -62,6 +77,9 @@ public class PlayerController : MonoBehaviour
         // Stop the mist particle system
         mistParticleSystem.Stop();
     }
+
+
+    
 }
 
 
