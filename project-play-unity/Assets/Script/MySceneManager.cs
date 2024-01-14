@@ -9,6 +9,6 @@ public class MySceneManager : MonoBehaviour
 
     public void goNextScene()
     {
-        SceneManager.LoadScene(SceneNum);
+        SceneManager.LoadScene("SampleScene");
     }
 }
