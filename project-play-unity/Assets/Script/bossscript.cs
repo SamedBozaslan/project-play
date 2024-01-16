@@ -5,18 +5,18 @@ using UnityEngine;
 public class bossscript : MonoBehaviour
 {
     public float idleSpeed = 2f;
-    public float chaseSpeed = 4f;
+    public float chaseSpeed = 5f;
     public float detectionRadius = 5f;
     public int currentHealth = 50;
 
-    public ParticleSystem particleSystemm; // Reference to the particle system
+    public GameObject particleSystemPrefab; // Prefab of the particle system
 
     private Transform player;
     private Animator animator;
 
     private const string MoveEnemyTrigger = "Move";
-
     private bool particleSystemActivated = false;
+    private GameObject particleSystemInstance; // Reference to the instantiated particle system
 
     void Start()
     {
@@ -30,35 +30,48 @@ public class bossscript : MonoBehaviour
         {
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-            if (distanceToPlayer <= detectionRadius && !particleSystemActivated)
+            if (distanceToPlayer <= detectionRadius)
             {
-                // Player is within range, start particle system
-                StartParticleSystem();
-            }
-            else if (distanceToPlayer > detectionRadius && particleSystemActivated)
-            {
-                // Player is out of range, stop particle system
-                StopParticleSystem();
-            }
-            else if (distanceToPlayer > detectionRadius && !particleSystemActivated)
-            {
-                // Player is out of range, particle system was not activated
-                // You can add idle state logic here
-            }
+                RotateAndMoveTowardsPlayer();
 
-            // Update other enemy behaviors based on distance, if needed
+                // Activate particle system if not already activated
+                if (!particleSystemActivated)
+                {
+                    StartParticleSystem();
+                }
+
+                // Trigger the "MoveEnemy" animation
+                animator.SetBool(MoveEnemyTrigger, true);
+            }
+            else
+            {
+                // Player is out of range, deactivate the particle system
+                StopParticleSystem();
+
+                // Idle state (you can add idle animations or behaviors here)
+                // Reset the "MoveEnemy" animation trigger
+                animator.SetBool(MoveEnemyTrigger, false);
+            }
         }
+    }
+
+    void RotateAndMoveTowardsPlayer()
+    {
+        // Rotate towards the player
+        Vector3 direction = (player.position - transform.position).normalized;
+        Quaternion toRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, Time.deltaTime * 5f);
+
+        // Move towards the player with chaseSpeed
+        transform.Translate(Vector3.forward * chaseSpeed * Time.deltaTime);
     }
 
     void StartParticleSystem()
     {
-        // Trigger the "MoveEnemy" animation
-        animator.SetBool(MoveEnemyTrigger, true);
-
-        // Activate the particle system
-        if (particleSystemm != null && !particleSystemm.isPlaying)
+        // Instantiate the particle system as a child of the enemy
+        if (particleSystemPrefab != null)
         {
-            particleSystemm.Play();
+            particleSystemInstance = Instantiate(particleSystemPrefab, transform);
             particleSystemActivated = true; // Set the flag to true once activated
         }
     }
@@ -66,14 +79,10 @@ public class bossscript : MonoBehaviour
     void StopParticleSystem()
     {
         // Player is out of range, deactivate the particle system
-        if (particleSystemm != null && particleSystemm.isPlaying)
+        if (particleSystemInstance != null)
         {
-            particleSystemm.Stop();
+            Destroy(particleSystemInstance); // Destroy the particle system instance
             particleSystemActivated = false; // Set the flag to false once deactivated
-
-            // Idle state (you can add idle animations or behaviors here)
-            // Reset the "MoveEnemy" animation trigger
-            animator.SetBool(MoveEnemyTrigger, false);
         }
     }
 
