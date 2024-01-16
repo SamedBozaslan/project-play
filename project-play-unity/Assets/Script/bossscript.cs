@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class bossscript : MonoBehaviour
 {
@@ -86,7 +87,7 @@ public class bossscript : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, WaitForSeconds waitForSeconds)
     {
         // Reduce health
         currentHealth -= damage;
@@ -96,6 +97,8 @@ public class bossscript : MonoBehaviour
         {
             // Perform defeat actions for the enemy (e.g., play animation, destroy enemy)
             Destroy(gameObject);
+            SceneManager.LoadScene(3);
+
         }
     }
 }

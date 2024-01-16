@@ -50,7 +50,7 @@ public class PlayerHealthManager : MonoBehaviour
             Debug.Log("Player defeated");
             // You can add more actions as needed
             Destroy(gameObject);
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(2);
 
         }
     }

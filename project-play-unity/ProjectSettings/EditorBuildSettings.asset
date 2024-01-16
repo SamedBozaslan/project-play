@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Tijn.unity
-    guid: 68241575e53af854bb8d82df80fc8b97
+    path: Assets/Scenes/Respawn scene.unity
+    guid: 3a4ce2865a5353a488bc8a4ae7c8ebbf
+  - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: ae282f09de6e0ff42a4669940cf66db3
   m_configObjects: {}
