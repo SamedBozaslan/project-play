@@ -87,7 +87,7 @@ public class bossscript : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage, WaitForSeconds waitForSeconds)
+    public void TakeDamage(int damage)
     {
         // Reduce health
         currentHealth -= damage;
